@@ -1,0 +1,56 @@
+<div class="container-fluid" style="background-color:#31006E; height: 120px;" >
+  <img class="img-fluid d-block mx-auto col-lg-5 px-5" style="max-height: 100%; max-width: 30%;" src="https://lh3.googleusercontent.com/GoB4B3RfQfgIhw2C_0H7m2ua2dr_aoVvqFd2GisA1WQgx-BfH51S7Eltyzj91UJNp7eZ-adomphrLZqwJD6jviQ--ue6f4B26PizyLgqrzLuXPjRPiQKIObwqVrwxKH8vbVwQZb1RZmC2xu9O57fc59mo0Bry_2VBTWKzB2PO057aPuhHEWKrxZbVCbay32o4bN5IELe0xikjUCSufvPkaHI08cbw-K_RcroIMH8IKOpUn1oafg1XEygip_MHnV7VHV62vRJ-2fDO3inTH_4_jRnqIFTuybXbUbz6T9Vn6rGSt9by2LjpQ7yYBBqVhDYqcMwm6RbuEqGEinxqQsWjXp0K8lZB5E2jnaaqOf7sHQEXTllbeDSkMeTRysh7QAbmL0DZVAskndMXnxjzKCEWe76WdG94BXR_b4vFsUdRARfghqpbG1Rakfb--9zqACwCDiF23h1RnUng75rBfUp3ZAzIb0LPRuerYh6K2SY-LXcAFzcWlTPlt58sDPEM8aD4cVousQwSH-J7lKiJ9iQSEXOeMw8IEGyshU-heEper98l0Nr12Koi90jnq-J5ATSKTBabBNo75IZoKJ9Ja3EZnYa_fUVh81kUZgV9dMtz-WGf47YGamd8W6_vBG00LDVrGUNiOpLCkcsL4MZwnAvbWKKDeZfYnaf_UP29U4I-VXQ1ZS6B_Ot85TNlJpbf0573VSZuMNQX8I6ApdYq7qPYHFg8i9HnaGKwwPTBqETcMxe77Y9Qm-f0kDf_Mq18zs8AM6T1kkTYA052S7uUnFID1zRHD4wIVL4A2I_E09eCSYDV8SOsZITSsv94ow07Zs9cKws_BOZKRvhCLvd6_nEtBAWzc0PSenN4WClw9c0oSuZLL691amQsdJr7e_orfalqN5C_OsR64kXmdSKaU7HoQsLfkcWpzH58TuUAt6YqBkNs1nieanJ1m3nl620jMlH3lRe-cCSu26Z7dM8sbMJ=w1188-h408-s-no?authuser=0"> 
+</div>
+
+<div class="container-fluid px-4 py-2" style="background-color:#7f37f3; height: 58px " >
+  <button type="button" style="background-color:#5611BB; "class=" fw-bold btn text-white" id="leave-btn" onclick="menu()">Leave chat room</button>
+    <h5 class="fw-bold text-white mt-2">BTS</h3> 
+</div>
+
+
+    <ul id="messages"></ul>
+    <form action="/" method="POST" id="chatForm">
+      <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /> <button style="background-color:#5611BB" class=" fw-bold btn text-white p-2">Send</button>
+    </form>
+    
+    <style>
+      #leave-btn{
+        float: right;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #8B4BEF; padding: 10px; position: fixed; bottom: 0; width: 100%; border-color: #000; border-top-style: solid; border-top-width: 1px;}
+      form input { border-style: solid; border-radius: 10px; border-width: 1px; padding: 15px; height: 40px; width: 85%; margin-right: .5%; }
+      form button { width: 9%; background: #31006E; border: none; padding: 10px; margin-left: 2%; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 15px 20px; }
+      #messages li:nth-child(odd) { background: #d8c3fa; }
+      
+  </style>
+
+    <script>
+            var socket = io.connect('http://localhost:8080');
+            // submit text message without reload/refresh the page
+            $('form').submit(function(e){
+                e.preventDefault(); // prevents page reloading
+                socket.emit('chat_message', $('#txt').val());
+                $('#txt').val('');
+                return false;
+            });
+            // append the chat text message
+            socket.on('chat_message', function(msg){
+                $('#messages').append($('<li>').html(msg));
+            });
+            // append text if someone is online
+            socket.on('is_online', function(username) {
+                $('#messages').append($('<li>').html(username));
+            });
+            // ask username
+            var username = prompt('Please tell me your name');
+            socket.emit('username', username);
+
+            function menu() {
+              window.open("http://localhost:8080/menu");
+            }
+    </script>

@@ -1,0 +1,52 @@
+<div class="container" >
+    <div class="mx-5 px-5 position-relative overflow-hidden text-center" >
+        <img class="d-block mx-auto col-lg-5 px-5" src="https://lh3.googleusercontent.com/2RKMBBME77MMwhiEV2TtAAKK_2AQXz9tW4aSMUuNhdGWWPhnMsmTxuqmVmkX9UzB9tJCy6BKR_qB5pYtezqum_A3SDKJmo97oMhP0xv6o-EcfFTe4sTdJoRNGwALZoa2KVLvXksQ5XlYGZds9wGf3iej0aHT_IObpa5PlxoCv-BVCfq0Ng4BmKOQv4GjcuWv77mLy4OyXvYR8IP03eGGRK8xLQLPfFkxrhjHy5uNtfBBKJMxY-2Kov0FIbTOxEHLjygakqb1-1WDjVVtc9yMK8BNhfIJ6Qte7stZwvfD2CU4kSTD-NuFJFt6Urbz9m1RtiUq5yDI3kige4CKIF-Ryvp7XGwhg_4qIlFA6mFj2mDrFbZBnY5-hk_e4cb9_YCy1z65zziVtgpxRDGV6EweeIvFGJN49i4PSrGhzJ2tTHLDRDBIVUYQWZIDk4XwuPZIdsew0HI90pNpVAb_0S0s_AIkPhcWfjn_lWPP9w28LN1w4Y9T4buw8md1xAyWOGdOAbsZOk-hxqQK4KO9Qwo2AUW8p2Ir_2F73XsXj69VDUDifB-Q26GFhmVSGIEWqLN3aRAY2UhKbC4zIScSwVQ8J8cu2qkODH03c8cD3SodWuq1TJo_GroPsybfC7fleLCJgSccS-usKPQzUB4F_FmLdxeQMQ5cDbzQN9AQjvFiMxT0RtDFQLa404kM2etHdqVASB0PmVCfHhE9ZJgMPuH2JxgZaqtWREx8OS86ebwrHoiIskKBDUyBP9iHayniTUbGGU97rQ1xjFCCJG4H3As6mRUoZllbSOMosHNcqr_8rzxYJG6CynNaSkrMtd0YAS99e4KwR_HMNUmczfMELv0fMYx6AXYLoY6W4frb3_VQvCB8X7WEv8CSKSCeTH-Ftjb_bc4oBTM_0JD-XkViOzRnCYQkNKkZvnKQEyvPQECOe1S6vcxpuswOQOwz7XRzuv9UXHJAxqb19cg3aoAAcCdI=w1188-h408-s-no?authuser=0" alt="">
+        <h3 class="fw-bold" style="color: #8D4BEF">Select a Chat Room</h3>
+    </div>
+</div>
+ 
+<div class="row mx-5 px-5 mb-5">
+    <div class="col mx-5 px-5">
+        <div class="card-group ml-1 px-5 mx-5 " >
+            
+            <div class="card col-4 me-md-3 mx-3 px-1 pt-md-2 px-md-2 text-center" style="background: #5611BB;  border-radius: 20px;">
+                <div class="mx-auto">
+                    <img class="img-fluid d-block mx-auto mb-3" style="border-radius: 20px;" src="https://i.pinimg.com/564x/fa/5f/29/fa5f29ce0458ef8ea61a0d9fe543180c.jpg">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button"style="background-color: #8B4BEF"class=" fw-bold btn btn-dark btn-lg btn-block mb-3 " id="bp_btn" onclick="chatroom()">Blackpink</button>
+                </div>
+            </div>
+
+            <div class="card col-4 me-md-3 mx-3 px-1 pt-md-2 px-md-2 text-center" style="background: #5611BB; border-radius: 20px;">
+                <div class="mx-auto">
+                    <img class="img-fluid d-block mx-auto mb-3" style="border-radius: 20px;" src="https://i.pinimg.com/564x/a0/7a/c3/a07ac3c48cb1928d3119e20e2d5aafb1.jpg">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button"style="background-color: #8B4BEF "class="fw-bold btn btn-dark btn-lg btn-block mb-3 " id="bts_btn" onclick="chatroom()">BTS</button>
+                </div>
+            </div>
+    
+            <div class="card col-4 me-md-3 mx-3 px-1 pt-md-2 px-md-2 text-center" style="background: #5611BB; border-radius: 20px;">
+                <div class="mx-auto">
+                    <img class="img-fluid d-block mx-auto mb-3" style="border-radius: 20px;" src="https://i.pinimg.com/564x/4d/c1/ac/4dc1ac54fa994006907a9c94ac30294d.jpg">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="button"style="background-color: #8B4BEF"class=" fw-bold btn btn-dark btn-lg btn-block mb-3 " id="nj_btn" onclick="chatroom()">Newjeans</button>
+                </div>
+            </div>
+        </div>
+    </div>       
+   </div>
+
+<style>
+    body {
+        background-color:#31006E;
+    }
+</style>
+
+<script>
+    function chatroom() {
+        window.open("http://localhost:8080/chatroom");
+    }
+</script>
